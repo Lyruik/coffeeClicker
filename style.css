@@ -1,3 +1,110 @@
-body {
-    background-color: black;
+html {
+  background-image: url(https://i.ytimg.com/vi/c0_ejQQcrwI/maxresdefault.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+div.producers {
+  background-color: chocolate;
+  color: white;
+  height: 38vh;
+  background-color: transparent;
+  text-align: center;
+  font-size: 48px;
+  font-weight: bolder;
+  font-family: "KG Broken Vessels Sketch", sans-serif;
+  border-image-repeat: stretch;
+  border-radius: 10px;
+  background-image: url(https://pogachacafe.com/wp-content/uploads/2018/01/chalkboard.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 10px solid transparent;
+  border-image-source: url("https://images.rawpixel.com/image_1300/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3BmLXMxMjUtYWtlNzAwNS1hLmpwZw.jpg");
+  border-image-repeat: stretch;
+  border-image-slice: 40;
+  border-image-width: 20px;
+  border-image-outset: 5px;
+  padding-top: 25px;
+  background-clip: padding-box;
+  display: flexbox;
+  justify-content: center;
+}
+/* div.producers::before {
+  content: "";
+  background-image: url('https://images.rawpixel.com/image_1300/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3BmLXMxMjUtYWtlNzAwNS1hLmpwZw.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  transform: translate(-41.75%);
+  height: 500px;
+  width: 197vh;
+  z-index: -1;
+  border-radius: 10px;;
+} */
+
+div #deCoffeeCounterBox {
+  background-color: chocolate;
+  color: white;
+  height: 38vh;
+  background-color: rgba(252, 252, 252, 0.185);
+  text-align: center;
+  font-size: 48px;
+  font-weight: bolder;
+  font-family: "KG Broken Vessels Sketch", sans-serif;
+  border: 5px solid white;
+  border-radius: 10px;
+}
+div.bottomButtons {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 10px;
+}
+#restartButton, #Placeholder {
+  padding: 15px;
+  background: transparent;
+  color: white;
+  font-family: "KG Broken Vessels Sketch", sans-serif;
+  border-radius: 20px;
+  font-size: 32px;
+  margin: 15px;
+  border: 5px solid white;
+  flex-basis: 20%;
+  background-color: rgba(255, 255, 255, 0.185);
+}
+img {
+  height: 50%;
+  transform: translateY(20%);
+  border-radius: 50%;
+}
+h1 {
+  font-size: inherit;
+  margin: 0px;
+}
+#producerBox {
+  display: flex;
+  flex-direction: column;
+}
+div.prodContainers {
+  font-size: 20px;
+  margin: 20px;
+  flex-basis: 85%;
+}
+.realProdContainers {
+  display: flex;
+  height: 100%;
+}
+.singleProdBox {
+  margin-right: 20px;
+  border-right: 5px solid white;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bottomText {
+  text-align: left;
+}
+.topText {
+  flex-grow: 1;
+  width: 100%;
 }
