@@ -86,14 +86,13 @@ brew.addEventListener("click", function () {
         for (let info in key) {
           console.log(key[info] === "Chemex", key.quantity);
           if (key[info] === quantCheck) {
-            if (key.cost === coffeeCount || key.cost < coffeeCount) {
+            if (key.cost <= coffeeCount) {
               key.quantity++;
               coffeeCount -= key.cost;
               htmlCounter.textContent = `Coffee: ${coffeeCount}`;
               key.cost = Math.floor((key.cost *= 1.2));
               coffeeRate += key.rate;
               cps.textContent = `${coffeeRate} coffee/second`;
-
               console.log(coffeeRate);
               bottomTextStageTwo.replaceChildren();
               prodBoxUpdates();
@@ -140,15 +139,20 @@ brew.addEventListener("click", function () {
     }
   }
 });
-
-function coffeePerSecond () {
-  
-    coffeeCount += coffeeRate;
-    htmlCounter.textContent = `Coffee: ${coffeeCount}`;
-    console.log(coffeeCount);
-  }
-
+function coffeePerSecond() {
+  coffeeCount += coffeeRate;
+  htmlCounter.textContent = `Coffee: ${coffeeCount}`;
+}
 setInterval(coffeePerSecond, 1000);
+
+// function coffeePerSecond () {
+
+//     coffeeCount += coffeeRate;
+//     htmlCounter.textContent = `Coffee: ${coffeeCount}`;
+//     console.log(coffeeCount);
+//   }
+
+// setInterval(coffeePerSecond, 1000);
 
 // console.log(prodUpgrades);
 // console.log(coffeeCount);
