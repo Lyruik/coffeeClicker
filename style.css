@@ -102,7 +102,7 @@ div.prodContainers {
   justify-content: space-between;
 }
 .bottomText {
-  text-align: left;
+  text-align: center;
 }
 .topText {
   flex-grow: 1;
