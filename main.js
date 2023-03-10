@@ -27,6 +27,13 @@ let prodUpgrades = [
     cost: 500,
     id: 4,
   }),
+  (coffeeRiver = {
+    name: "Coffee River",
+    quantity: 0,
+    rate: 20,
+    cost: 1000,
+    id: 5,
+  }),
 ];
 //   },
 //   let chemex = {
@@ -92,24 +99,26 @@ brew.addEventListener("click", function () {
         let listArray = [];
         let valuesArray = [];
         let botTextAdd = document.createElement("div");
-        for (let key in prodUpgrades[id]) {
-          for (let inKey of key) {
-            if (listArray.length < 3) {
-              listArray.push(key);
-              console.log(listArray, key, "HELP ME");
-              break;
+        for (let key of prodUpgrades) {
+          // console.log(key);
+          if (listArray.length < 4) {
+            for (let inKey in key) {
+              console.log(inKey);
+              let addTo = inKey;
+              listArray.push(addTo);
+              console.log(listArray);
             }
-            if (valuesArray.length < 5) {
-              for (let h = 0; h < prodUpgrades.length; h++) {
-                for (let valueKey in prodUpgrades[id - 1]) {
-                  console.log(valueKey);
-                  valuesArray.push(prodUpgrades[id - 1][valueKey]);
-                }
+          }
+          if (valuesArray.length < 5) {
+            for (let h = 0; h < prodUpgrades.length; h++) {
+              for (let valueKey in prodUpgrades[id - 1]) {
+                console.log(valueKey);
+                valuesArray.push(prodUpgrades[id - 1][valueKey]);
               }
             }
           }
         }
-        if (listArray[i + 1] === undefined) {
+        if (listArray[i] === undefined) {
           console.log("YOU GOOFED", i, listArray);
           botTextAdd.textContent =
             listArray[i][0].charAt(0).toUpperCase() +
