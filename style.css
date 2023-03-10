@@ -100,9 +100,11 @@ div.prodContainers {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex: 0 0 10%;
 }
 .bottomText {
   text-align: center;
+  font-size: 12px;
 }
 .topText {
   flex-grow: 1;
