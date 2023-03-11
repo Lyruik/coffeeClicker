@@ -34,6 +34,13 @@ let prodUpgrades = [
     cost: 1000,
     id: 5,
   }),
+  (brandNEW = {
+    name: "HELLO I AM NEW",
+    quantity: 0,
+    rate: 50,
+    cost: 5000,
+    id: 6,
+  }),
 ];
 //   },
 //   let chemex = {
@@ -92,7 +99,7 @@ startingButton.addEventListener("click", function gameStart() {
   setInterval(coffeePerSecond, 2000);
 
   brew.addEventListener("click", function howDo() {
-    coffeeCount++;
+    coffeeCount+=15;
     htmlCounter.textContent = `Coffee: ${coffeeCount}`;
     if (coffeeCount === upgradeMilestone || coffeeCount > upgradeMilestone)
       theNumbersMason();
