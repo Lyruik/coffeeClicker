@@ -2,7 +2,7 @@ let prodUpgrades = [
   (chemex = {
     name: "Chemex",
     quantity: 0,
-    rate: 1,
+    rate: 1000,
     cost: 5,
     id: 1,
   }),
@@ -80,12 +80,11 @@ startingButton.addEventListener("click", function gameStart() {
     cps.textContent = `${coffeeRate} coffee/second`;
     clearInterval(coffeePerSecond);
     if (coffeeCount === upgradeMilestone || coffeeCount > upgradeMilestone) {
-      theNumbersMason();
+      howDo();
     }
   }
   setInterval(coffeePerSecond, 2000);
-
-  brew.addEventListener("click", function howDo() {
+  function howDo() {
     coffeeCount += 15;
     htmlCounter.textContent = `Coffee: ${coffeeCount}`;
     if (coffeeCount === upgradeMilestone || coffeeCount > upgradeMilestone)
@@ -206,5 +205,6 @@ startingButton.addEventListener("click", function gameStart() {
         }
       }
     }
-  });
+  }
+  brew.addEventListener("click", howDo);
 });
