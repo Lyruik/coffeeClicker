@@ -74,23 +74,10 @@ let startingButton = document.getElementById("restartButton");
 
 startingButton.addEventListener("click", function gameStart() {
   startingButton.textContent = "Restart";
-  if (startingButton.textContent === "Restart") {
-    startingButton.addEventListener("click", function resetti() {
-      coffeeCount = 0;
-      coffeeRate = 0;
-      currentMilestone = 0;
-      upgradeMilestone = 1;
-      htmlCounter.textContent = `Coffee: ${coffeeCount}`;
-      cps.textContent = `${coffeeRate} coffee/second`;
-      prodBox.replaceChildren();
-      brew.removeEventListener(type, listener);
-      // gameStart();
-    });
-  }
-
   function coffeePerSecond() {
     coffeeCount += coffeeRate;
     htmlCounter.textContent = `Coffee: ${coffeeCount}`;
+    cps.textContent = `${coffeeRate} coffee/second`;
     clearInterval(coffeePerSecond);
     if (coffeeCount === upgradeMilestone || coffeeCount > upgradeMilestone) {
       theNumbersMason();
@@ -99,7 +86,7 @@ startingButton.addEventListener("click", function gameStart() {
   setInterval(coffeePerSecond, 2000);
 
   brew.addEventListener("click", function howDo() {
-    coffeeCount+=15;
+    coffeeCount += 15;
     htmlCounter.textContent = `Coffee: ${coffeeCount}`;
     if (coffeeCount === upgradeMilestone || coffeeCount > upgradeMilestone)
       theNumbersMason();
@@ -175,6 +162,21 @@ startingButton.addEventListener("click", function gameStart() {
                 bottomTextStageTwo.appendChild(botTextAdd);
                 botTextAdd.className = "bottomText";
               }
+            }
+            if ((startingButton.textContent = "Restart")) {
+              startingButton.removeEventListener("click", gameStart);
+              startingButton.addEventListener("click", function restarting() {
+                coffeeCount = 0;
+                coffeeRate = 0;
+                htmlCounter.textContent = `Coffee: ${coffeeCount}`;
+                cps.textContent = `${coffeeRate} coffee/second`;
+                currentMilestone = 0;
+                upgradeMilestone = 1;
+                newSingleProdBox.remove();
+                clearInterval();
+                startingButton.removeEventListener("click", restarting);
+                startingButton.addEventListener("once", gameStart);
+              });
             }
           }
           newButton.addEventListener("click", function (e) {
