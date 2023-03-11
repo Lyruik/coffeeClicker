@@ -38,15 +38,26 @@
     <br />
     <div class="bottomButtons">
       <button id="restartButton">Start</button>
-      <button id="Placeholder">Options</button>
+      <button id="optionsBtn">Options</button>
+      <div id="optionsBox">
+        <h2 id="optTitle">Options</h2>
+        <div class="optionSelects">
+          <h3>Passcode</h3>
+          <input type="text" />
+          <input type="submit" />
+        </div>
+        <div class="optionSelects">
+          <h3>Jukebox</h3>
+          <input type="checkbox" id="musicEnable" value="0" />
+          <audio
+            id="radio"
+            src="https://uk3.internet-radio.com/proxy/majesticjukebox?mp=/live"
+            controls="controls"
+          >
+            HELLO
+          </audio>
+        </div>
+      </div>
     </div>
-    <audio
-      id="radio"
-      src="https://uk3.internet-radio.com/proxy/majesticjukebox?mp=/live"
-      autoplay="autoplay"
-      controls="controls"
-    >
-      HELLO
-    </audio>
   </body>
 </html>

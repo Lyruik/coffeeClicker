@@ -59,7 +59,7 @@ div.bottomButtons {
   display: flex;
   margin: 10px;
 }
-#restartButton, #Placeholder {
+#restartButton, #optionsBtn {
   padding: 15px;
   background: transparent;
   color: white;
@@ -109,4 +109,38 @@ div.prodContainers {
 .topText {
   flex-grow: 1;
   width: 100%;
+}
+#radio {
+  /* display: none; */
+  border-radius: 5px;
+  background-color: burlywood;
+}
+#optionsBox {
+  background-color: rgba(255, 127, 80, 0.76);
+  height: 450px;
+  position: absolute;
+  z-index: 1;
+  width: 450px;
+  transform: translate(0%, -50vh);
+  border-radius: 15px;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  border: 5px solid brown;
+}
+.optionSelects, h3 {
+  display: flex;
+  margin: 5px;
+  max-height: 25px;
+  align-self: center;
+  width: 400px;
+  justify-content: space-between;
+  flex-basis: 10%;
+}
+#optTitle {
+  text-decoration: underline;
+  margin-bottom: 150px;
+}
+#turnOff {
+  display: none;
 }

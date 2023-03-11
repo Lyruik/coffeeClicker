@@ -2,8 +2,8 @@ let prodUpgrades = [
   (chemex = {
     name: "Chemex",
     quantity: 0,
-    rate: 1000,
-    cost: 5,
+    rate: 100,
+    cost: 1,
     id: 1,
   }),
   (frenchPress = {
@@ -42,25 +42,6 @@ let prodUpgrades = [
     id: 6,
   }),
 ];
-//   },
-//   let chemex = {
-//     name: "Chemex",
-//     quantity: 0,
-//     rate: 1,
-//     cost: 10,
-//   },
-//   let Chemex = {
-//     name: "Chemex",
-//     quantity: 0,
-//     rate: 1,
-//     cost: 10,
-//   },
-//   let Chemex = {
-//     name: "Chemex",
-//     quantity: 0,
-//     rate: 1,
-//     cost: 10,
-//   },
 
 let coffeeCount = 0;
 let upgradeMilestone = 1;
@@ -125,26 +106,21 @@ startingButton.addEventListener("click", function gameStart() {
               let valuesArray = [];
               let botTextAdd = document.createElement("div");
               for (let key of prodUpgrades) {
-                // console.log(key);
                 if (listArray.length < 4) {
                   for (let inKey in key) {
-                    // console.log(inKey);
                     let addTo = inKey;
                     listArray.push(addTo);
-                    // console.log(listArray);
                   }
                 }
                 if (valuesArray.length < 5) {
                   for (let h = 0; h < prodUpgrades.length; h++) {
                     for (let valueKey in prodUpgrades[id - 1]) {
-                      // console.log(valueKey);
                       valuesArray.push(prodUpgrades[id - 1][valueKey]);
                     }
                   }
                 }
               }
               if (listArray[i] === undefined) {
-                // console.log("YOU GOOFED", i, listArray);
                 botTextAdd.textContent =
                   listArray[i][0].charAt(0).toUpperCase() +
                   listArray[i].slice(1) +
@@ -171,6 +147,50 @@ startingButton.addEventListener("click", function gameStart() {
                 cps.textContent = `${coffeeRate} coffee/second`;
                 currentMilestone = 0;
                 upgradeMilestone = 1;
+                prodUpgrades = [
+                  (chemex = {
+                    name: "Chemex",
+                    quantity: 0,
+                    rate: 1,
+                    cost: 1,
+                    id: 1,
+                  }),
+                  (frenchPress = {
+                    name: "French Press",
+                    quantity: 0,
+                    rate: 2,
+                    cost: 50,
+                    id: 2,
+                  }),
+                  (mrCoffee = {
+                    name: "Mr. Coffee",
+                    quantity: 0,
+                    rate: 5,
+                    cost: 100,
+                    id: 3,
+                  }),
+                  (coffeeFountain = {
+                    name: "Coffee Fountain",
+                    quantity: 0,
+                    rate: 10,
+                    cost: 500,
+                    id: 4,
+                  }),
+                  (coffeeRiver = {
+                    name: "Coffee River",
+                    quantity: 0,
+                    rate: 20,
+                    cost: 1000,
+                    id: 5,
+                  }),
+                  (brandNEW = {
+                    name: "HELLO I AM NEW",
+                    quantity: 0,
+                    rate: 50,
+                    cost: 5000,
+                    id: 6,
+                  }),
+                ];
                 newSingleProdBox.remove();
                 clearInterval();
                 startingButton.removeEventListener("click", restarting);
@@ -181,9 +201,7 @@ startingButton.addEventListener("click", function gameStart() {
           newButton.addEventListener("click", function (e) {
             let quantCheck = newButton.previousSibling.textContent;
             for (let key of prodUpgrades) {
-              // console.log(key);
               for (let info in key) {
-                // console.log(key[info] === "Chemex", key.quantity);
                 if (key[info] === quantCheck) {
                   if (key.cost <= coffeeCount) {
                     key.quantity++;
@@ -192,11 +210,11 @@ startingButton.addEventListener("click", function gameStart() {
                     key.cost = Math.floor((key.cost *= 1.2));
                     coffeeRate += key.rate;
                     cps.textContent = `${coffeeRate} coffee/second`;
-                    // console.log(coffeeRate, key.id, "HUELO");
                     bottomTextStageTwo.replaceChildren();
                     prodBoxUpdates(key.id);
                   } else {
                     console.log("not enough dosh");
+                    alert("Not enough coffee");
                   }
                 }
               }
@@ -207,4 +225,16 @@ startingButton.addEventListener("click", function gameStart() {
     }
   }
   brew.addEventListener("click", howDo);
+});
+
+let optionsBtn = document.querySelector("#optionsBtn");
+
+optionsBtn.addEventListener("click", function pullOptions() {
+  let optionsBox = document.getElementById("optionsBox");
+  optionsBox.style.display = "flex";
+  optionsBtn.removeEventListener("click", pullOptions);
+  optionsBtn.addEventListener("click", function closeOptions() {
+    optionsBox.style.display = "none";
+    optionsBtn.addEventListener("click", pullOptions);
+  });
 });
