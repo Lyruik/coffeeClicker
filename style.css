@@ -94,24 +94,33 @@ div.prodContainers {
   height: 100%;
 }
 .singleProdBox {
-  margin-right: 20px;
-  border-right: 5px solid white;
-  padding-right: 20px;
+  border-left: 2.5px solid white;
+  border-right: 2.5px solid white;
+  padding-right: 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 0 0 10%;
+  flex: 0 1 12.5%;
 }
 .bottomText {
   text-align: center;
-  font-size: 12px;
+  font-size: 16px;
+}
+button.topText {
+  background-color: transparent;
+  border: solid white;
+  width: 100%;
+  color: white;
+  font-family: "KG Broken Vessels Sketch", sans-serif;
+  border-radius: 15px;
 }
 .topText {
-  flex-grow: 1;
   width: 100%;
+  margin-bottom: 30px;
+  font-size: 1rem;
 }
 #radio {
-  /* display: none; */
+  display: none;
   border-radius: 5px;
   background-color: burlywood;
 }

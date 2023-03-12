@@ -2,8 +2,8 @@ let prodUpgrades = [
   (chemex = {
     name: "Chemex",
     quantity: 0,
-    rate: 100,
-    cost: 1,
+    rate: 1,
+    cost: 10,
     id: 1,
   }),
   (frenchPress = {
@@ -34,17 +34,31 @@ let prodUpgrades = [
     cost: 1000,
     id: 5,
   }),
-  (brandNEW = {
-    name: "HELLO I AM NEW",
+  (coffeeTycoon = {
+    name: "Coffee Tycoon",
     quantity: 0,
-    rate: 50,
-    cost: 5000,
+    rate: 100,
+    cost: 10000,
     id: 6,
+  }),
+  (coffeePlanet = {
+    name: "Coffee Planet",
+    quantity: 0,
+    rate: 500,
+    cost: 100000,
+    id: 7,
+  }),
+  (coffeeGalaxy = {
+    name: "Coffee Galaxy",
+    quantity: 0,
+    rate: 1000,
+    cost: 1000000,
+    id: 8,
   }),
 ];
 
 let coffeeCount = 0;
-let upgradeMilestone = 1;
+let upgradeMilestone = 10;
 let prodBox = document.querySelector(".realProdContainers");
 let currentMilestone = 0;
 let coffeeRate = 0;
@@ -60,23 +74,32 @@ startingButton.addEventListener("click", function gameStart() {
     htmlCounter.textContent = `Coffee: ${coffeeCount}`;
     cps.textContent = `${coffeeRate} coffee/second`;
     clearInterval(coffeePerSecond);
-    if (coffeeCount === upgradeMilestone || coffeeCount > upgradeMilestone) {
+    if (coffeeCount === 22775822931 || coffeeCount > 22775822931) {
+      alert(
+        "You Win! Please reload (or else it will keep telling you 'you win'"
+      );
+    } else if (
+      coffeeCount === upgradeMilestone ||
+      coffeeCount > upgradeMilestone
+    ) {
       howDo();
     }
   }
-  setInterval(coffeePerSecond, 2000);
+  setInterval(coffeePerSecond, 1500);
   function howDo() {
-    coffeeCount += 15;
+    coffeeCount += 1;
     htmlCounter.textContent = `Coffee: ${coffeeCount}`;
     if (coffeeCount === upgradeMilestone || coffeeCount > upgradeMilestone)
       theNumbersMason();
     function theNumbersMason() {
       for (let o = 0; o < 10; o++) {
         if (
-          coffeeCount === upgradeMilestone ||
-          coffeeCount > upgradeMilestone
+          (coffeeCount === upgradeMilestone ||
+            coffeeCount > upgradeMilestone) &&
+          currentMilestone < 8
         ) {
-          upgradeMilestone = upgradeMilestone * 2;
+          upgradeMilestone = Math.floor(upgradeMilestone ** 1.3);
+          console.log(upgradeMilestone);
           currentMilestone++;
           let newSingleProdBox = document.createElement("div");
           prodBox.appendChild(newSingleProdBox);
@@ -86,6 +109,7 @@ startingButton.addEventListener("click", function gameStart() {
           newSingleStageTwo.className = "topText";
           let newSingleName = document.createElement("div");
           newSingleName.textContent = prodUpgrades[currentMilestone - 1].name;
+          newSingleName.className = "topText";
           newSingleStageTwo.appendChild(newSingleName);
           let newButton = document.createElement("button");
           newSingleStageTwo.appendChild(newButton);
@@ -146,13 +170,13 @@ startingButton.addEventListener("click", function gameStart() {
                 htmlCounter.textContent = `Coffee: ${coffeeCount}`;
                 cps.textContent = `${coffeeRate} coffee/second`;
                 currentMilestone = 0;
-                upgradeMilestone = 1;
+                upgradeMilestone = 10;
                 prodUpgrades = [
                   (chemex = {
                     name: "Chemex",
                     quantity: 0,
                     rate: 1,
-                    cost: 1,
+                    cost: 10,
                     id: 1,
                   }),
                   (frenchPress = {
@@ -183,11 +207,25 @@ startingButton.addEventListener("click", function gameStart() {
                     cost: 1000,
                     id: 5,
                   }),
-                  (brandNEW = {
-                    name: "HELLO I AM NEW",
+                  (coffeeTycoon = {
+                    name: "Coffee Tycoon",
                     quantity: 0,
-                    rate: 50,
-                    cost: 5000,
+                    rate: 100,
+                    cost: 10000,
+                    id: 6,
+                  }),
+                  (coffeePlanet = {
+                    name: "Coffee Planet",
+                    quantity: 0,
+                    rate: 500,
+                    cost: 100000,
+                    id: 6,
+                  }),
+                  (coffeeGalaxy = {
+                    name: "Coffee Galaxy",
+                    quantity: 0,
+                    rate: 1000,
+                    cost: 1000000,
                     id: 6,
                   }),
                 ];
